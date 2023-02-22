@@ -1,0 +1,46 @@
+/XrayTube/phys/addPhysics  emstandard_opt4
+/process/em/deexcitationIgnoreCut true
+/process/em/fluo true
+/run/setCut 10 um
+/process/em/setBiasingFactor eBrem 1 true
+# in interactive session
+#
+# Set some default verbose
+/control/verbose 2
+/control/saveHistory
+/run/verbose 2
+#
+# Change the default number of threads (in multi-threaded mode)
+#/run/numberOfThreads 4
+#
+# Initialize kernel
+/run/initialize
+#
+#
+# ------------------------------------------------------define a mesh 
+# -- Define scoring mesh, call it "ScoringVolumeMesh"
+#
+#/score/create/boxMesh ScoringVolumeMesh
+#/score/mesh/boxSize 14.3 12 0.3 cm
+#/score/mesh/translate/xyz 0. 0. 11.47 cm
+#/score/mesh/nBin 100 1 1
+#
+# -- Define scorers
+#
+#/score/quantity/energyDeposit eDep
+#/score/quantity/trackLength trackLength
+#/score/quantity/passageCellCurrent totalCurrent 1
+#/score/quantity/passageCellCurrent gammaCurrent 1
+#/score/filter/particle epFilter gamma
+#
+# -- Dump a score to a file
+#
+#/run/beamOn 10000
+#/score/dumpQuantityToFile ScoringVolumeMesh eDep eDep.txt
+#/score/dumpQuantityToFile ScoringVolumeMesh gammaCurrent nofGamma.txt
+#/score/close
+#
+# ------------------------------------------------
+#
+# Visualization setting
+/control/execute macros/vis.mac

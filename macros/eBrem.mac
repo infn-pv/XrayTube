@@ -1,0 +1,6 @@
+/XrayTube/phys/addPhysics  emstandard_opt4
+
+/process/em/deexcitationIgnoreCut true
+/process/em/fluo true
+/run/setCut 10 um
+/process/em/setBiasingFactor eBrem 1000 true

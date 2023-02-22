@@ -1,0 +1,23 @@
+/XrayTube/phys/addPhysics  emstandard_opt2
+
+/process/em/deexcitationIgnoreCut true
+/process/em/fluo true
+/run/setCut 10 um
+/process/em/setBiasingFactor eBrem 100000 true
+# in interactive session
+#
+# Set some default verbose
+/control/verbose 2
+/control/saveHistory 
+/run/verbose 2
+#
+# Change the default number of threads (in multi-threaded mode)
+# /run/numberOfThreads 2
+#
+# Initialize kernel
+/run/initialize
+#
+#
+#/control/execute macros/vis.mac
+/XrayTube/biasing/setSplittingFactor 1
+/run/beamOn 100000000

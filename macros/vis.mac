@@ -1,0 +1,93 @@
+# Use this open statement to create an OpenGL view:
+/vis/open OGL 600x600-0+0
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+#
+# Draw geometry:
+/vis/drawVolume
+#
+# Specify view angle:
+/vis/viewer/set/viewpointVector -1 0 0
+/vis/viewer/set/lightsVector -1 0 0
+#
+# Specify style (surface, wireframe, auxiliary edges,...)
+/vis/viewer/set/style wireframe
+/vis/viewer/set/auxiliaryEdge true
+/vis/viewer/set/lineSegmentsPerCircle 100
+#
+# Draw smooth trajectories at end of event, showing trajectory points
+# as markers 2 pixels wide:
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByCharge
+# (if too many tracks cause core dump => /tracking/storeTrajectory 0)
+#
+# Draw hits at end of event:
+/vis/scene/add/hits
+#
+# For example, to select colour by particle ID:
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/default/setDrawStepPts true
+#
+# To superimpose all of the events from a given run:
+/vis/scene/endOfEventAction accumulate
+#
+# Decorations
+# Name
+/vis/set/textColour green
+/vis/set/textLayout right
+#
+# Axes, scale, etc.
+# /vis/scene/add/scale   # Simple scale line
+# /vis/scene/add/eventID # Drawn at end of event
+#
+#
+# To get nice view
+# Make the "World" box invisible
+/vis/geometry/set/visibility World 0 false
+#set colors
+#
+/vis/geometry/set/colour Petri 0 207 245 255 .3
+ /vis/geometry/set/colour Petri_air 0 230 255 248 .3
+ /vis/geometry/set/colour Cover_up 0 207 245 255 .3
+/vis/geometry/set/colour Base 0 207 245 255 .3
+#arancione /vis/geometry/set/colour DMEM_medium 0 255 46 158 0.3
+  /vis/geometry/set/colour DMEM_medium 0 1 0 0 0.3
+ /vis/geometry/set/colour Cover_slip 0 185 209 204 .3
+#rosa /vis/geometry/set/colour Cells 0 255 185 237 1
+  /vis/geometry/set/colour Cells 0 0 1 0 1
+#
+#/vis/geometry/set/colour Plate 0 166 207 234 0.3
+/vis/geometry/set/colour Plate 0 0 0 1 0.3
+#
+ /vis/geometry/set/colour Column 0 229 215 161 .3
+ /vis/geometry/set/colour ColumnINT 0 229 215 161 .3
+# /vis/geometry/set/colour Filter 0 128 128 128 .3
+#
+/vis/geometry/set/colour XTub 0 197 197 148 .3
+/vis/geometry/set/colour XTub_air 0 197 197 148 .3
+/vis/geometry/set/colour XTub_glass 0 197 197 148 .3
+/vis/geometry/set/colour XTub_void 0 197 197 148 .3
+#/vis/geometry/set/colour WindowXTub 0 1 0 0 0.3
+#
+/vis/geometry/set/colour Anode 0 128 128 128 .3
+#
+/vis/geometry/set/colour Cube 0 229 215 161 .3
+/vis/geometry/set/colour Cube_air 0 229 215 161 .3
+#
+#/vis/geometry/set/colour WindowInTheBox 0 1 0 0 0.3
+#/vis/geometry/set/colour WindowInTheBoxUP 0 1 0 0 0.3
+#
+/vis/geometry/set/colour RadcalEXT 0 121 121 121 .3
+/vis/geometry/set/colour RadcalINT 0 121 121 121 .3
+#/vis/geometry/set/colour RadcalSensitiveVolume 0 1 0 0 0.3
+/vis/geometry/set/colour RadcalEXTBottom 0 121 121 121 .3
+/vis/geometry/set/colour RadcalINTBottom 0 121 121 121 .3
+#
+/vis/viewer/set/style surface
+/vis/viewer/set/hiddenMarker true
+/vis/viewer/set/viewpointThetaPhi 120 150
+#
+# Re-establish auto refreshing and verbosity:
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
+#

@@ -1,0 +1,66 @@
+/XrayTube/phys/addPhysics  emstandard_opt4
+/process/em/deexcitationIgnoreCut true
+/process/em/fluo true
+/process/em/setBiasingFactor eBrem 1 true
+# in interactive session
+/run/verbose 0
+# Initialize kernel
+/run/initialize
+#
+# Volumes available for both configurations 
+/run/setCutForRegion AnodeRegion 1 um
+/run/setCutForRegion PlateRegion 1 um
+/run/setCutForRegion SensitiveVolumeRegion 1 um
+# Cell volumes
+/run/setCutForRegion PetriRegion 1 um
+/run/setCutForRegion Petri_airRegion 1 um
+/run/setCutForRegion Cover_upRegion 1 um
+/run/setCutForRegion CoverRegion 1 um
+/run/setCutForRegion BaseRegion 1 um
+/run/setCutForRegion DMEMRegion 1 um
+/run/setCutForRegion CoverSlipRegion 1 um
+# radcal volumes
+/run/setCutForRegion RadcalEXTRegion 1 um
+/run/setCutForRegion RadcalINTRegion 1 um
+#
+# run particles
+/random/setSeeds 41
+/run/beamOn 1000000000
+/random/setSeeds 43
+/run/beamOn 1000000000
+/random/setSeeds 45
+/run/beamOn 1000000000
+/random/setSeeds 47
+/run/beamOn 1000000000
+/random/setSeeds 49
+/run/beamOn 1000000000
+/random/setSeeds 51
+/run/beamOn 1000000000
+/random/setSeeds 53
+/run/beamOn 1000000000
+/random/setSeeds 55
+/run/beamOn 1000000000
+/random/setSeeds 57
+/run/beamOn 1000000000
+/random/setSeeds 59
+/run/beamOn 1000000000
+/random/setSeeds 61
+/run/beamOn 1000000000
+/random/setSeeds 63
+/run/beamOn 1000000000
+/random/setSeeds 65
+/run/beamOn 1000000000
+/random/setSeeds 67
+/run/beamOn 1000000000
+/random/setSeeds 69
+/run/beamOn 1000000000
+/random/setSeeds 71
+/run/beamOn 1000000000
+/random/setSeeds 73
+/run/beamOn 1000000000
+/random/setSeeds 75
+/run/beamOn 1000000000
+/random/setSeeds 77
+/run/beamOn 1000000000
+/random/setSeeds 79
+/run/beamOn 1000000000

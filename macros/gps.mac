@@ -1,0 +1,59 @@
+# Macro file for example umr106
+# 
+# Can be run in batch, without graphic
+# or interactively: Idle> /control/execute run1.mac
+#
+# Change the default number of workers (in multi-threading mode) 
+#/run/numberOfThreads 4
+#
+# Initialize kernel
+/run/initialize
+#
+/control/verbose 2
+/run/verbose 2
+# 
+# gamma from Bremmstrahlung to the direction (0.,0.,-1.)
+#
+/gps/particle gamma 
+
+# source
+/gps/pos/type Plane
+/gps/pos/shape Square
+#centro del piano sorgente
+/gps/pos/centre 0. 0. 10. cm 
+#metà delle dimensioni del piano sorgente
+/gps/pos/halfx 2.5 cm
+/gps/pos/halfy 2.5 cm
+
+# angular distribution (funzione del coseno?)
+/gps/ang/type cos
+#-----------------------------------------------------
+# energy distribution
+/gps/ene/type User
+/gps/hist/type energy
+/gps/hist/point 1.0 0.
+/gps/hist/point 2.0 5.
+/gps/hist/point 7.0 1.
+/gps/hist/point 10. 1.
+
+#oppure
+#/gps/ene/type Arb 
+#/gps/hist/type arb
+#/gps/hist/file x-ray-spectrum-geant4-180kV.dat
+#/gps/hist/inter Lin
+#------------------------------------------------------
+# commands below are independent of gps
+#
+#/analysis/setFileName test18PerUmr106
+#3 comandi disattivati
+#/analysis/h1/set 1 100 0 15 MeV
+#/analysis/h2/set 1 100 -5 5 cm none linear 100 -5 5 cm none linear #x-y
+#/analysis/h2/set 4 120 0 360 deg none linear 100 -1 1 none none linear
+
+
+#
+#/control/execute vis.mac
+#
+/run/printProgress 1000
+#
+/run/beamOn 100000

@@ -1,0 +1,19 @@
+/XrayTube/phys/addPhysics  emstandard_opt4
+
+/process/em/deexcitationIgnoreCut true
+/process/em/fluo true
+/run/setCut 10 um
+/process/em/setBiasingFactor eBrem 1000 true
+# Initialize kernel
+/run/initialize
+/control/execute macros/vis.mac
+#
+#Set bremsstrahlung splitting per region
+#/process/em/setSecBiasing eBrem WindowXTub 1000
+#/process/em/setSecBiasing eBrem Filter 2000
+#/process/em/setSecBiasing eBrem WindowCube 4000
+#/process/em/setSecBiasing eBrem WindowCube_air 4000
+#/process/em/setSecBiasing eBrem WindowCubePlastic 4000
+#/process/em/setSecBiasing eBrem RadcalSensitiveVolume 8000
+
+
